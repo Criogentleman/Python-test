@@ -1,0 +1,9 @@
+n = 13
+s = 32
+p = s-n
+netmask = '1' * n + '0' * p
+print (netmask)
+test = list(netmask)
+test.insert(8, '.'); test.insert(17, '.'); test.insert(26, '.')
+test = ''.join(test)
+print (test)
