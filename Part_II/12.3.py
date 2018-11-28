@@ -25,9 +25,13 @@ def ping_script(ip_list):
             reachable.append(ip)
         else:
             unreachable.append(ip)
-    dict_head = {'reachable':reachable, 'unreachable':unreachable}
-    return dict_head
+    return reachable, unreachable
 
-ip_list = ['8.8.4.4-8', '76.122.94.1-2', '76.122.95.1-76.122.95.2']
+def ip_table(ipaddr_list):
+    ip_dict = {'reachable':ipaddr_list[0], 'unreachable':ipaddr_list[1]}
+    return ip_dict
 
-print(tabulate(ping_script(ip_list), headers='keys'))
+
+ip_list = ['8.8.4.4', '76.122.94.1-2', '76.122.95.1-76.122.95.2']
+
+print(tabulate(ip_table(ping_script(ip_list)), headers='keys'))
