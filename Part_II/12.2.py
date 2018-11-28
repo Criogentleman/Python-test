@@ -19,7 +19,7 @@ def ping_script(ip_list):
             ip1_list.append(ip)
 
     for ip in ip1_list:
-        ping = subprocess.run(['ping', ip, '-n', '3'], stdout=subprocess.DEVNULL)  # DEVNULL to hide process
+        ping = subprocess.run(['ping', ip, '-c', '3'], stdout=subprocess.DEVNULL)  # DEVNULL to hide process
         if ping.returncode == 0:
             reachable.append(ip)
         else:
